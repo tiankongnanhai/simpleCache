@@ -37,7 +37,7 @@ func (c *Cache) Get(key string) (Value, bool) {
 	return nil, false
 }
 
-func (c *Cache) Delete(key string) {
+func (c *Cache) Delete() {
 	ele := c.ll.Back()
 	if ele != nil {
 		c.ll.Remove(ele)
@@ -62,7 +62,7 @@ func (c *Cache) Add(key string, value Value) {
 		c.nBytes += int64(len(key)) + int64(value.Len())
 	}
 	for c.maxBytes != 0 && c.maxBytes < c.nBytes {
-		c.Delete(key)
+		c.Delete()
 	}
 }
 
