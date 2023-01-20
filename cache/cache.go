@@ -1,7 +1,7 @@
-package simpleCache
+package cache
 
 import (
-	"simpleCache/lru"
+	"example/cache/lru"
 	"sync"
 )
 
